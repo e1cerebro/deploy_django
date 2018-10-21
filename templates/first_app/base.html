@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'first_app:showform' %}"> Show Form</a></li>
+        <li><a href="{% url 'first_app:newtopic' %}"> New topic</a></li>
+        <li><a href="{% url 'admin:index' %}"> Admin Page</a></li>
+
+        {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}"> Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'first_app:user_login' %}"> Login</a></li>
+        {% endif %}
+
+    </ul>
+  </div>
+</nav>
+
+{% block main_content %}
+
+{% endblock %}
+</body>
+</html>

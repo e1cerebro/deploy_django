@@ -1,0 +1,20 @@
+ {% extends 'first_app/base.html' %}
+
+{% block main_content %}
+    <div class="container">
+        <h3>Complete the form below</h3>
+        <form method="post">
+            {{ TopicForm.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </form>
+
+       {%  if  status  %}:
+           <h2>Form Response;</h2>
+            <p>Name: {{ form_data_name}}</p>
+            <p>Email: {{ form_data_email}}</p>
+            <p>Message: {{ form_data_message }}</p>
+       {% endif %}
+    </div>
+
+{% endblock %}

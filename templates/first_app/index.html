@@ -1,0 +1,32 @@
+{% extends 'first_app/base.html' %}
+
+{% block main_content %}
+
+
+    <h1>Access Records</h1>
+
+    {% if access_records %}
+
+        <table>
+            <thead>
+            <tr>
+                <td>Site Name</td>
+                <td>Site URL</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for access_record in access_records %}
+            <tr>
+                <td>{{ access_record.name|cut:'Ltd' }}</td>
+                <td>{{ access_record.date }}</td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p>No access record found</p>
+
+    {% endif %}
+{% endblock %}

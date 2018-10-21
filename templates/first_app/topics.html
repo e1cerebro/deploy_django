@@ -1,0 +1,16 @@
+{% extends 'first_app/base.html' %}
+
+{% block main_content %}
+
+ <form method="post">
+{{ form }}
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Save Post" />
+</form>
+
+{% for topic in topics %}
+    <p>{{ topic.top_name }}</p>
+{% endfor %}
+
+
+{% endblock %}
